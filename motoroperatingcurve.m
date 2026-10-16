@@ -1,20 +1,20 @@
 % Define the range of torques
-T = 0:0.1:10; % Adjust the range as needed
+T = 0.1:0.1:10; % Positive torque; the reciprocal curve is undefined at zero
 
 % Motor parameters (adjust these as needed)
 w0 = 10; % Example constant speed for synchronous motor
 k = 0.5; % Example constant for motor/load characteristics
 
 % Define Load Functions
-load_gravity = @(T) 5; % Example constant load
-load_viscous = @(T) k * sqrt(T); % Example viscous load
-load_dry = @(T) 3; % Example constant load for dry friction
+load_gravity = @(T) 5 + zeros(size(T)); % Example constant load
+load_viscous = @(T) k * sqrt(T); % Illustrative square-root reference, not a viscous-law derivation
+load_dry = @(T) 3 + zeros(size(T)); % Example constant load for dry friction
 load_turbulence = @(T) k * T.^2; % Example load for turbulence
 
 % Define Motor Characteristics
-motor_sync = @(T) w0; % Synchronous motor
+motor_sync = @(T) w0 + zeros(size(T)); % Synchronous motor
 motor_shunt = @(T) w0 - k * T; % Shunt motor
-motor_series = @(T) 1./T; % Series motor (parabolic)
+motor_series = @(T) 1./T; % Illustrative reciprocal series-like curve
 
 % Plotting
 figure;

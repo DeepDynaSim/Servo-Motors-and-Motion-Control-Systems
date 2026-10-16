@@ -16,8 +16,13 @@ plot(omega, Tm(omega), 'b', 'DisplayName', 'Motor Torque');
 plot(omega, Tl(omega), 'r', 'DisplayName', 'Load Torque');
 
 % Find the equilibrium point
-omega_eq_idx = find(abs(Tm(omega) - Tl(omega)) < 0.1, 1, 'first'); % Threshold for finding equilibrium
-omega_eq = omega(omega_eq_idx);
+equilibrium_roots = roots([am-al, bm-bl, cm-cl]);
+equilibrium_roots = real(equilibrium_roots(abs(imag(equilibrium_roots)) < 1e-10));
+equilibrium_roots = sort(equilibrium_roots(equilibrium_roots >= min(omega) & equilibrium_roots <= max(omega)));
+if isempty(equilibrium_roots)
+    error('No real torque-balance equilibrium lies in the displayed speed range.');
+end
+omega_eq = equilibrium_roots(1); % First equilibrium in the displayed range
 T_eq = Tm(omega_eq);
 
 % Plot the equilibrium point
@@ -39,7 +44,7 @@ dTm_domega = 2 * am * omega_eq + bm;
 dTl_domega = 2 * al * omega_eq + bl;
 
 % State-space representation (Linearized around the equilibrium point)
-A = [-dTm_domega/J];
+A = [(dTm_domega-dTl_domega)/J]; % J*omega_dot = Tm(omega)-Tl(omega)
 B = [1/J];
 C = [1];
 D = [0];
