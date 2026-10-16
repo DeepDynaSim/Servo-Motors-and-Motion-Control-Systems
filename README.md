@@ -1,30 +1,32 @@
-Servo Motors and Motion Control Systems - A Collaborative Educational Repository
+# Servo Motors and Motion Control Systems
 
-Overview: 
+**DeepDynaSim collection | Electric drives and motion control | MATLAB / Simulink**
 
-The Servo Motors and Motion Control Systems (SMMCS) project is a comprehensive, collaborative educational repository designed to support and enhance the learning experience of students enrolled in the "Servo Motors and Motion Control System" course. 
+Hands-on educational examples for understanding motor dynamics, load characteristics and feedback control. Explore DC motor simulations, adaptive PID and induction-motor field-oriented control using the files already in this repository.
 
-This GitHub project aims to provide a rich collection of resources, tools, and practical examples focusing on the design, simulation, and implementation of servo motor control systems.
+## Choose an example
 
-Key Features:
+| Topic | File |
+| --- | --- |
+| Motor and load operating curves | [motoroperatingcurve.m](motoroperatingcurve.m) |
+| Stability analysis | [stabilityanalysis.m](stabilityanalysis.m) |
+| Brushed DC motor dynamics | [brushed_dc_motor_simulation.m](brushed_dc_motor_simulation.m) |
+| Adaptive PID speed control | [brushed_dc_motor_adaptive_pid_control.m](brushed_dc_motor_adaptive_pid_control.m) |
+| Induction motor direct field-oriented control | [asm_dfoc.slx](asm_dfoc.slx) |
+| Archived elevator-control materials | [elevatorcontrol.rar](elevatorcontrol.rar) |
 
-Comprehensive Resource Library: The project hosts a wide range of educational materials, including MATLAB/Simulink models, control algorithms, and detailed documentation on various types of motors such as brush-type DC motors, permanent magnet brushless DC and AC motors, linear motors, and induction machines.
+## Getting started
 
-Interactive Workshops and Exercises: SMMCS includes modules and guidelines for hands-on workshops and exercises that align with the course syllabus. These resources encourage students to engage in practical problem-solving and system development.
+Clone the repository and open its root directory in MATLAB. Review a script before running it so the motor parameters and load definitions match the exercise. Simulink models require Simulink and the additional toolboxes indicated by their blocks.
 
-Collaborative Learning Platform: The project fosters a collaborative environment where students can share their workshop results, discuss challenges, and propose innovative solutions. This platform is designed to enhance peer-to-peer learning and teamwork.
+```matlab
+addpath(pwd);
+edit brushed_dc_motor_simulation.m
+```
 
-Simulation and Prototyping Tools: Emphasizing the use of modern control engineering tools, the repository provides examples and tutorials on modeling, simulation, and rapid prototyping, leveraging tools like MATLAB/Simulink.
+Use the detailed notes below as a learning guide. The examples illustrate modelling and controller behaviour; they are not a qualified motor drive or elevator controller. Existing discussions and shared course materials can be found in [Issues](https://github.com/DeepDynaSim/Servo-Motors-and-Motion-Control-Systems/issues).
 
-Regular Updates and Improvements: The project is continuously updated with the latest research, developments, and student contributions, ensuring that the repository remains a current and valuable resource.
-
-Target Audience: The primary audience for this project includes students enrolled in the "Servo Motors" course, as well as educators and hobbyists interested in servo motor control systems.
-
-Accessing the Repository: The SMCS project is available on GitHub and can be accessed freely by anyone interested in servo motor control systems. Whether you're a student looking to enhance your learning experience or an educator seeking comprehensive teaching materials, SMMCS offers valuable resources for all.
-
-You can access Lecture Notes and Books from the “Issues” section.
-
-Table of Contents
+## Detailed notes
 
 1) Motor Operating Curve: Overview:
 This MATLAB script is designed to analyze and visualize the characteristics of different types of electric motors under various load conditions. The code plots the speed-torque curves for synchronous, shunt, and series motors, and compares them against different types of loads including gravity, viscous friction, dry friction, and turbulence loads. This tool is invaluable for students, educators, and professionals in electrical and electronics engineering, particularly those specializing in electric motors.
@@ -206,3 +208,12 @@ Speed and Position Control: The application includes algorithms for precise cont
 RTOS Optimization: The control logic is optimized for real-time performance, ensuring responsive and reliable operation in RTOS environments.
 
 User-Friendly Interface: The application includes a user-friendly interface for simulating different scenarios, adjusting parameters, and observing system behavior.
+
+
+## Related work and collaboration
+
+Explore related repositories: [Complete Kinematic Analysis](https://github.com/DeepDynaSim/Complete-Kinematic-Analysis) · [DeepLyapunovFunction](https://github.com/DeepDynaSim/DeepLyapunovFunction).
+
+[DeepDynaSim](https://github.com/DeepDynaSim) is an engineering R&D and consulting company in İzmir, Türkiye, focused on physics-guided AI, simulation and control. For engineering collaboration: [support@deepdynasim.com](mailto:support@deepdynasim.com). For repository questions, use [Issues](https://github.com/DeepDynaSim/Servo-Motors-and-Motion-Control-Systems/issues).
+
+Reuse follows the existing [LICENSE](LICENSE); academic authorship and third-party attribution remain with their respective creators.
